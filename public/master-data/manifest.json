@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-03-05",
+  "masterData": [
+    { "key": "priorities",        "label": "Priorities",              "file": "MZ_PARQ_Priorities.csv",           "sourceFile": "MZ_PARQ_Priorities_20260302.csv",   "optional": false },
+    { "key": "assets",            "label": "Assets",                  "file": "MZ_PARQ_Assets.csv",               "sourceFile": "MZ_PARQ_Assets_20260302.csv",       "optional": false },
+    { "key": "locations",         "label": "Locations",               "file": "MZ_PARQ_Locations.csv",            "sourceFile": "MZ_PARQ_Locations_20260304.csv",    "optional": false },
+    { "key": "eventTypes",        "label": "Event Types",             "file": "MZ_PARQ_EventTypes.csv",           "sourceFile": "MZ_PARQ_Event_Types20260302.csv",   "optional": false },
+    { "key": "problemTypes",      "label": "Problem Types Template",  "file": "MZ_PARQ_ProblemTypesTemplate.csv", "sourceFile": "MZ_PARQ_ProblemTypesTemplate.csv",  "optional": false },
+    { "key": "serviceCategories", "label": "Service Categories",      "file": "MZ_PARQ_ServiceCategories.csv",    "sourceFile": "MZ_PARQ_ServiceCategories.csv",     "optional": true  },
+    { "key": "frequencyTypes",    "label": "Frequency Types",         "file": "MZ_PARQ_FrequencyTypes.csv",       "sourceFile": "MZ_PARQ_FrequencyTypes.csv",        "optional": true  }
+  ]
+}

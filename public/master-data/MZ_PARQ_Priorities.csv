@@ -1,0 +1,5 @@
+﻿ColorCode,Id,IsCritical,Name
+#ff0000,1,False,Cat 1
+#ffa500,2,False,Cat 2
+#00ff00,3,False,Cat 3
+#808080,6,False,Cat 4

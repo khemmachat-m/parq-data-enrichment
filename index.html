@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PARQ Data Enrichment v2 · JOB152 Smart City OB</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%2300d4aa'/><text x='6' y='23' font-size='18' font-family='monospace' font-weight='bold' fill='%23080c14'>P</text></svg>">
+</head>
+<body>
+<div id="app">
+
+  <!-- ══ Header ═══════════════════════════════════════════════════════════ -->
+  <header>
+    <div class="header-left">
+      <div class="breadcrumb">JLL · JOB152 SMART CITY OB · THE PARQ</div>
+      <h1>PARQ Data <span>Enrichment</span> <span class="ver">v2</span></h1>
+      <p class="subtitle">
+        CWO · Cases · PPM → Master Data Join
+        &nbsp;/&nbsp;
+        Client-side · No data leaves your browser
+      </p>
+    </div>
+    <div class="header-actions">
+      <button id="reset-txn-btn" title="Clear transaction files and results only">↺ New Session</button>
+      <button id="run-btn" disabled>▶ Run Enrichment</button>
+    </div>
+  </header>
+
+  <!-- ══ Progress ══════════════════════════════════════════════════════════ -->
+  <div class="progress-track"><div id="progress-bar"></div></div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       SECTION 01  —  MASTER DATA  (auto-loaded from server)
+  ════════════════════════════════════════════════════════════════════════ -->
+  <section class="data-section">
+    <div class="section-head">
+      <div class="section-number">01</div>
+      <h2>MASTER DATA FILES</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <!-- Master status bar -->
+    <div id="master-status" class="master-status-bar loading">
+      <span class="msb-icon">◌</span>
+      <span>Loading master data from server…</span>
+    </div>
+
+    <!-- Master cards (injected by JS) -->
+    <div id="master-section" class="file-grid master-grid"></div>
+
+    <!-- Legend -->
+    <div class="master-legend">
+      <span class="leg-item"><span class="leg-dot server"></span>Server — bundled in app</span>
+      <span class="leg-item"><span class="leg-dot cached"></span>Cached — browser storage</span>
+      <span class="leg-item"><span class="leg-dot override"></span>Override — user upload</span>
+      <span class="leg-item"><span class="leg-dot optional"></span>Optional — not required</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       SECTION 02  —  TRANSACTION FILES  (upload each session)
+  ════════════════════════════════════════════════════════════════════════ -->
+  <section class="data-section">
+    <div class="section-head">
+      <div class="section-number">02</div>
+      <h2>UPLOAD SOURCE FILES</h2>
+      <div class="section-rule"></div>
+    </div>
+
+    <div id="drop-zone" class="drop-zone">
+      <p class="drop-hint">
+        Drag &amp; drop CWO, Cases &amp; PPM CSV files here — auto-detected by filename prefix
+      </p>
+      <div id="txn-section" class="file-grid txn-grid"></div>
+    </div>
+  </section>
+
+  <!-- ══ Processing Log ════════════════════════════════════════════════════ -->
+  <div id="log-panel" class="hidden">
+    <div class="panel-header">
+      <span class="panel-title">PROCESSING LOG</span>
+    </div>
+    <pre id="log-content"></pre>
+  </div>
+
+  <!-- ══ Results & Downloads ═══════════════════════════════════════════════ -->
+  <div id="results-panel" class="hidden">
+
+    <div class="section-head" style="margin-top:36px">
+      <div class="section-number ok">↓</div>
+      <h2>DOWNLOAD ENRICHED FILES</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="results-actions">
+      <button id="dl-cwo"   class="dl-btn cwo">
+        ↓&nbsp; MZ_PARQ_CWO_Enriched.csv
+      </button>
+      <button id="dl-cases" class="dl-btn cases">
+        ↓&nbsp; MZ_PARQ_Cases_Enriched.csv
+      </button>
+      <button id="dl-ppm"   class="dl-btn ppm" style="display:none">
+        ↓&nbsp; MZ_PARQ_PPM_Enriched.csv
+      </button>
+    </div>
+
+    <div class="section-head" style="margin-top:28px">
+      <div class="section-number">✓</div>
+      <h2>JOIN RATE SUMMARY</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div id="summary-cards"></div>
+
+  </div>
+
+</div><!-- /app -->
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
